@@ -2,7 +2,7 @@
 layout: about
 ---
 
-![Julien Fusco](/assets/julien.png)
+![Julien Fusco](images/julien.png)
 
 Bonjour, je m'appelle Julien Fusco. Je suis un artisan du web.  
 Je fais des sites web et des applications mobiles. J'aime aussi faire un peu de devops.  
