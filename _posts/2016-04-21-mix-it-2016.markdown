@@ -1,0 +1,120 @@
+---
+layout: post
+title: Mix-IT 2016
+date: 2016-04-21
+---
+
+_Cet article est une prise de notes du Mix-IT 2016 qui a eu lieu à CPE Lyon._
+
+> La conférence avec des crêpes et du cœur. [mix-it.fr](https://www.mix-it.fr)
+
+## Tester et valider ses déploiements
+
+[Résumé sur mix-it.fr](https://www.mix-it.fr/session/2752/)
+
+Plusieurs outils pour déployer et monitorer son code :
+
+* SaltStack -> Déploiement (alternative : ansible, chef, puppet)  
+* Shinken -> Monitoring mais Sensu est bien mieux pour les API Rest
+
+Les devs mettent en place des tests UF, font du TDD... Mais en tant que sysops, c'est assez pénible de tester les scripts de déploiements.
+
+### Plusieurs niveaux de vérifications :
+
+1 - Syntaxe
+
+```bash
+ansible-playbook foo.yml --check
+```
+
+2 - Script
+
+Utiliser un serveur jetable : préparer une machine virtuelle via VirtualBox et Vagrant, faire une conf, puis exécuter
+
+3 - Supervision
+
+Exécuter des vérifications périodiquement et envoyer des alertes en cas de problème.
+
+Tout cela peut être intégrer dans un Jenkins.
+
+### Test Driven Infrastructure
+
+Mise en place des checks -> Checks négatifs -> Déploiement -> Checks positifs
+
+Checks de supervision + configuration de déploiement = Validation des déploiements
+
+Implémentation de déploiement du serveur de supervision :
+
+* Config de déploiement du serveur de supervision
+* Config de déploiement du service
+* Config de déploiement de la supervision du service
+
+Exécution :
+
+1. Déploiement de la supervision
+2. Checks -> négatif
+3. Déploiement service
+4. Checks -> positif
+
+## Go, from Zero to Hero
+
+[Résumé sur mix-it.fr](https://www.mix-it.fr/session/3282/)
+
+Très proche de Python ou Ruby mais plus rapide car compilé.  
+
+* JSON encoding
+* HTTP server
+* Types
+* Interfaces
+* Goroutines
+
+On peut apprendre les concepts de Go en 2h.
+
+Livre à lire : Site Reliability Engineering
+
+## HTTP/2 pour le développeur Web
+
+[Résumé sur mix-it.fr](https://www.mix-it.fr/session/2872/)
+
+### Les problèmes de HTTP/1
+
+Problème de latence. La bande passante n'est plus le problème.  
+
+Techniques de contournement :
+
+* Domain sharding
+* Concaténation des assets
+* Sprites
+
+### HTTP/2
+
+Ancêtre de HTTP/2 : SPDY
+
+Plusieurs améliorations :
+
+* Une seule connexion TCP
+* Multiplexing : plusieurs requêtes = une seule connexion
+* Binary framing
+* Flow control
+* HPACK
+* TLS obligatoire
+
+Informations utiles :
+
+* les frames sont visibles dans les net-internals de chrome
+* Nginx supporte HTTP/2
+
+Stream prioritization
+
+Amélioration de TCP sur les serveurs :
+
+* Linux kernel 3.2+
+* Cache-Control & Etag
+* Gzip / deflate
+* Image compression
+
+Dev toolset :
+
+* NSSKeyLog
+* Wireshark
+* DevToolBar (possibilité d'ajouter de la latence)
