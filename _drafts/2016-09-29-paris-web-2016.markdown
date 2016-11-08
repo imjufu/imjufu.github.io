@@ -1,0 +1,727 @@
+---
+layout: post
+title: Paris Web 2016
+date: 2016-09-29
+---
+
+Infos pratiques :
+
+Wifi : CCMR-Hotspot
+Login : guest-2506438
+Mot de passe : parisweb2016
+
+
+# Jeudi
+
+
+# Anatomie d'une désintoxication au web sous surveillance
+
+Par, Thibault Jouannic
+9h30 - 10h20
+
+Slides : miximum.fr/blog/conf-pw-2016
+
+Monétisation de la donnée, de la vie privée.
+
+DataBrokers : courtiers en données -> Acxiom, DataLogics, Mediaposte...
+Leur but, ils scrapent le web, ils achetent des fichiers et revendent les données
+Base de 500 millions d'individus
+
+Acxiom, page de déontologie très stupide et hypocrite !
+
+Que peut-on faire avec des données ?
+Les exploiter et prédire des comportements
+
+Dataclisum, bouquin sur l'analyse des données et faire ressortir des choses intéressantes
+
+Service gratuit -> publicité !
+Affichage de pub prédictif via des études de comportement par les GAFAs
+
+Principale info exploitée par les GAFAs : la liste des pages que l'on visite
+Le tracking...
+
+Appli Mozilla qui permet de visualiser la relation entre les sites visités : LightBeam
+
+Toutes données personnelles sont des données sensibles alors que la loi française ne concidère pas cela
+
+Une donnée peut être sensible, anodine ou indirectement sensible.
+Une adresse publiée sur societe.com pour un indépendant qui sort avec une policière. Pour le premier, l'info est anodine, pour le deuxième, c'est sensible
+
+Pour arreter de collaborer avec les GAFAs, il faut dératiser les sites.
+- Virer les scripts google analytics et les remplacer par des solutions d'analyse d'audience perso : logstash, kibana, piwik...
+- Virer les boutons de partage : twitter, facebook
+- Virer les fonts : google fonts, auto-héberger les
+- Virer les maps : google maps, utiliser open street map
+- Virer les CDN : auto-héberge ses ressources
+
+Disqus est une vraie merde
+
+Concept à intégrer :
+- Privacy by design : par défaut, la vie privée est respectée
+- Chiffrement obligatoire
+- Débloquer Tor
+- Stockage des données : d'un coté les données non sensibles et de l'autre les sensibles
+- Recueil des données : ne récolter que des choses utiles et demander vraiment l'autorisation aux utilisateurs
+- Stockage des mdp : "comment bien stocker les mots de passe de vos utilisateurs ?" conf sud web
+- Respecter la loi
+- Non-conservation : ne revender pas les données de vos utilisateurs
+
+Peut-on afficher de la pub tout en respectant la vie privée des users ?
+Peut-on perdre du poids en mangeant que des cougnamane ?
+
+
+
+# Y'a pas d'avancement, pas de grimaces
+
+Par, Thomas Gasc
+10h30 - 10h45
+
+Nielsen fait un tas d'études pour voir les usages des sites mais qu'il y a peut-etre des moyens moins long et couteux (bouquin de 2007)
+
+Eli, livre "la qualité web" a aidé
+Ils ont fait des interviews et des tests utilisateurs pour voir les blocages
+
+Réassurrance sur le paiement sécurisé
+Les bonnes pratiques, la qualité ne sont pas une fin en soit. Il faut tendre vers. Livre de Bastien de Joli code "Dette tech"
+
+Réassurance : contact sav / support
+Réassurance : délai de livraison, mode..
+
+La livraison est critique, il faut être vigilent la-dessus. Le prix, le mode, qui ? C'est important pour le user
+
+Il faut avoir des étapes claires.
+Les formulaires sont très importants. Il faut les rendre utilisable. Cf. la conf de pw 2015 
+La saisie d'adresse est très angoissante pour le user ! Attention à la multiplication des champs compliqués
+
+Les champs nom / prénom séparés ne sont pas utilisables
+
+Attention au controle sur les champs de type email, c'est insupportable
+
+L'authentification sur les sites de ecommerce il faut arreter
+Cela fait fuire les gens
+
+Une fois la commande terminée, il faut en prendre soin.
+"Votre commande a bien été prise en compte", c'est pourri
+Les emails marketing ne fonctionnent pas
+
+Le suivi de commande est très important.
+Attente de prépa -> prépa en cours -> attente d'expedition -> expédié -> en cours d'acheminement -> en livraison -> facture dispo
+
+
+
+# Lancer son site à l'international, facile ? Oui, si l'on pense à tout !
+
+Par, Aurélie Guillaume
+10h45 - 11h
+
+La base, la traduction. Outils I18N
+
+Les prix : gestion des devises, utilisation d'api pour la conversion euro -> dollar, gestion des tva, des frais de douane ?
+
+Les dates : norme iso8601 & utc
+plusieurs timezones / pays
+heure d'été / hiver géré par les gouvernements en mode yolo
+
+Attention aux controles des champs surtout pour les pays asiatiques
+nom, prénom, email, téléphone
+état (pour les us)
+
+Les reCaptcha (google) sont bloqués en chine et empechent la commande !
+
+Le design doit etre retravaillé. Sens de lecture des pays arabes
+Contenu textuel des images
+Utiliser une font supportant tous les alphabets dispo
+
+Le seo est un point sensible.
+Google n'est pas le numéro 1 partout (inexistant en chine, pas premier au japon)
+le partage social n'est pas un automatisme
+
+Attention à la loi !
+- age de majorité différent selon les pays
+- serveur physique obligatoire dans certains pays (ex: chine)
+- interdit de stocker le numéro cb client
+- collecte d'impots régionaux (airbnb en france)
+
+Les fonctionnalités aussi
+- cartographie (maps, openstreetmap, bing), paiement (braintree, worldpay, stripe...)
+- opportunités business régionalisés : exemple uber
+
+Il faut prévoir l'internationalisation dès le départ au maximum
+Beaucoup de petites adaptations à faire ! Vous allez avoir pleins de questions et c'est normal !
+
+
+
+# La blockchain, quand l'individu sert au collectif... malgré lui
+
+Par, Francois Zaninotto
+11h20 - 12h20
+
+On fait beaucoup confiance aux intermédaires.
+Exemple : fleury michon et son jambon
+
+Mais ils aiment bien en abuser !
+
+La blockchain est là pour éviter les intermédiaires de confiance.
+Tout a commencé avec la finance et notamment le bitcoin.
+Satochi Nakamoto inventeur du bitcoin mais il est inconnu.
+
+Blockchain = P2P + Crypto asymetrique + preuve de travail
+
+Blockchain s'appuie sur le P2P.
+Tout le monde fait une copie de la donnée.
+Bitcoin réplique le registre comptable sur tous les noeuds p2p.
+
+Blockchain s'appuie sur la Crypto asymetrique pour sécuriser les échanges de données.
+
+La crypto permet de signer un message pour assurer l'identité (privé -> public) mais aussi pour chiffrer un message à communiquer (public -> privé)
+
+Blockchain s'appuie sur la preuve de travail
+Cela permet d'ordonner les transactions pour éviter de tricher sur les échanges de données
+
+Pour avoir le droit de publier son bloc de transaction il faut avoir beaucoup de 0000 en début de sha256 du bloc. Du coup, beaucoup de chance, beaucoup de travail d'ou -> preuve de travail
+Cela coute et est fait par des mineurs
+
+Du coup, avec tout ça, pas besoin de faire confiance à tout le monde. Les moutons noirs sont éliminés directs car les blocs frauduleux sont remplacés par de svrais blocs.
+
+La sécurité est assuré par le nombre. Si plus de la moitié des mineurs jouent franc jeu, la blackchain est sure.
+
+Notion de smartcontract.
+
+* Bitproof.io permet de certifier conforme un document. Cela évite de faire appel à des notaires ultra cher.
+* Slock.it pour ouvrir les appartement sur des durées données.
+* La Zooz est une alternive à Blablacar mais sans autorité de confiance.
+* La DAO est une société de capital risqueur géré par smartcontract.
+* Storj = cloud distribué en utilisant les HDD des users de la blockchain.
+
+Ce sont des decentralized apps ou DApps
+
+Ethereum = blockchain app platform
+
+Voir le projet "zero dollar homepage" de marmelab
+
+Attention aux réponses asynchrones, le minage prend du temps !
+Il faut interroger le réseau pour savoir si la blockchain est diffusé
+
+Attention, une fois diffusé, un bloc ne peut pas etre corrigé !
+
+Pour le minage, il faut accompagner d'ether.
+Ils ont obtenu 5 ethers en 5 jours sur un EC2 qui leur a couté 50 dollars. (qui peuvent etre revendu 55 dollars).
+
+Toutefois !
+
+La blockchain n'est pas prete. La doc est pas a jour, les exemples de code sont KO.
+
+Les smartcontracts sont stupides. Pas d'appel à des api externes. Il faut tout pousser dans les smartcontracts.
+
+C'est très compliqué. Les Dapps sont ultra-bugés ! 1 bug toutes les 10 lignes.
+
+Cela manque de sécurité car le code c'est la loi et du coup, si bug, le hacker n'est pas responsable !
+
+Beaucoup de gaspillage.
+1 bloc accepté toutes les 10 minutes. 99% des calculs sont rejetés.
+C'est très couteux. Et ce sont les users blockchain qui payent.
+
+1 bitcoin = 600 dollars à l'heure actuelle
+Mais c'est très variable
+
+Si supression des inermédiaires, pas de business model !
+
+C'est très lent les blockchains. Il faut attendre 1h sur la blockchain pour valider d'un point de vue sécurité 1 bloc.
+
+Conclusion
+
+Voir Bitnation
+Beaucoup de probleme mais il faut parier dessus.
+
+
+
+# Organisez des cryptoparties !
+
+Par, Xavier Mouton-Dubosc
+12h20 - 12h35
+
+https://dascritch.net/vrac/Supports/1609-PARISWEB-CRYPTO/1_presentation.html#/
+
+2011, australie -> traffic conservé 2 ans
+aout 2012, asher wolf -> il faut des cryptoparties !
+octobre 2012, 1ère crypto à toulouse
+décembre 2012, 1ère crypto faite par snowden à Hawai
+
+Pourquoi ?
+
+* apprendre à nous exprimer publiquement
+* évangéliser bonnes pratiques
+* valoriser nos métiers
+
+C'est compliqué, il faut aider le néophyte et être humble
+
+Recettes :
+
+* resteez simple
+* pas de prosélythisme politique
+* pas de prosélythisme technologique
+* dédramatiser les choses et faites les choses avec humour
+
+Sensibiliser :
+
+* syndrome du "rien à cacher" (tu me donnes ta cb ?)
+* de perdre des données / souvenirs
+
+Sujets simples :
+
+* les métadonnées
+* réseau informatique
+* internet ?
+* https / email chiffré ?
+* chiffrement / confidentialité
+
+Fictions :
+
+* Cryptonomicon (romans)
+* Media entity (bd)
+* Antitrust (film)
+* person of interest (série)
+
+
+
+# UX et éthique
+
+Par, Raphael 
+12h20 - 12h35
+
+Les CGV
+Temps de lecture moyen : 7sec :D
+
+Les cookies
+Personne ne prend le temps de lire l'avertissement
+
+À voir : Ateliers de co-conceptions
+Très intéressant mais conflit d'intérets !
+
+Voir le code de conduite UXPA
+
+
+
+# Web security by design
+
+Par, Jérémie Jourdin et Benjamin Leroux
+14h10 - 15h10
+
+Yahoo : 500 millions de users dans la nature
+Linkedin : 100 millions de comptes piratés
+Castorama : le moteur de recherche suggère des choses bizarres (via injection)
+
+Le règlement européen pousse au privacy by design
+
+Les mauvaises pratiques
+
+- Bad design
+
+* controle des données en entrée
+* mauvais usage du chiffrement
+* absence de framework
+* secrets en dur dans le code
+* manque de logs 
+* environnements différents (dev / prod)
+
+Exemple du drone
+Il génère un wifi ouvert, accès telnet avec un accès root sans mdp
+Apps mobile qui donne des infos à des accès sur les apis des fabriquants
+
+Beaucoup d'iot problématique
+système d'alarme, caméra de surveillance
+
+Pourquoi ?
+* time to market ralenti
+* faible sensibilisation
+* mauvaise pratique de dev : top 10 des invulnérabilités
+
+Les fondamentaux
+
+- Disponibilité
+- Confidentialité
+- Intégrité des données
+- Tracabilité
+
+Il faut avoir une approche par les risques
+Raisonner en pas-à-pas 
+
+Ressources :
+- OWASP : exemples, fiches de bonne pratiques, outils
+- Open SAMM : approche, méthode
+
+Revue manuelle -> revues syntaxique -> analyse statique -> analyse dynamique -> test d'intrusion
+
+Outils : 
+- Z Attack Proxy
+- Sonar Cube
+
+
+
+# Éco-conception : mon site web au régime 
+
+Par, Frédéric Bordage
+15h10 - 16h20
+
+(Demander les slides)
+
+Greenit.fr
+Le web a grandi mais il a grossi aussi
+Le poids d'une page a été multiplié par 115 en 20 ans
+De 2010 à 2015, il a été multiplié par 3
+
+L'empreinte environnementale représente un 6ème continent
+
+Démarche de conception responsable des services numériques
+
+Cela fait 15ans qu'on éco-concoie du matériel
+On peut s'appuyer dessus pour la conception de site web
+
+Sobriété heureuse de pierre rabiche
+
+Il faut dégraisser les sites, revenir au fondamental
+
+Mise en oeuvre 
+
+- Les impacts sont situés essentiellement au niveau des terminaux
+
+Constitution d'un référentiel (cf. livre l'écoconception en 115 bonnes pratiques)
+
+Il existe une certification d'éco-conception (c'est tout jeune)
+
+Outils d'évaluation : ecoindex.fr
+
+L'écoconception passe avant tout par le fonctionnel afin de dégraisser l'interface, le graphisme...
+
+Liste sur opquast liée à l'écoconception
+
+Pas de prise de conscience sur l'ecoconception car on leur a vendu l'aspect immatériel.
+Le gouvernement a à peine conscience des problèmes d'accessibilités
+
+
+
+# Retour d'expérience sur la refactorisation d'une application d'e-mail
+
+Par, Noëlie Andrieu
+16h20 - 16h35
+
+
+
+
+# Il n'y a pas que class et id dans la vie
+
+Par, Gaël Poupard
+16h35 - 16h50
+
+(slides dispo sur github)
+
+Atomic-css
+Takion (beaucoup de bruit en ce moment)
+
+Écrire des classes à responsabilités uniques
+
+Ben Frain en 2014 a prouvé que la contre-performance des sélecteurs c'est faux.
+
+Sélecteurs pestiférés :
+* sélecteur universel : *
+* sélecteur attr complexe
+* sélecteur adjacence et de parenté
+* sélecteur éléments surqualifiés 
+
+Heydon Pickering : auteur intéressant à voir
+
+Scooter : framework css de dropbox
+
+
+
+# Quand les militaires se prennent au jeu du design sprint
+
+Par, Marie-Amélie Cottillon
+17h - 17h50
+
+Personne de chez CapGemini (?!)
+
+Design sprint processus de 5 jours durant lequel on cherche à résoudre un problème par le design
+Créé par Google depuis 2010
+
+Lundi  : découvrir
+Mardi : rechercher
+Mercredi : décider
+Jeudi : prototyper
+Vendredi : tester
+
+S'assurer le plus tot possible que le service est viable
+
+Prototype : croquis -> maquette -> photoshop -> Marvelab (intéractivité)
+
+Il faut libérer la parole. Le "Tu" est de rigueur.
+
+Mettre en place un petit jeu au départ pour détendre l'atmosphère
+
+La prise de décision rapide est importante, il faut être en présence des décisionnaires sinon ça ne marche pas !
+
+Après le design sprint, il y a eu une amélioration du prototype pour présentation 3 mois après à la direction.
+
+La phase de préparation d'un design sprint est très importante. Gérer toute la logistique (nouriture, boisson, organisation, répartition des rôles, gestion du planning)
+
+
+
+# Vendredi
+
+
+# L'accessibilité décomplexée, ce qu'elle peut faire pour vous
+
+Par, Nicolas Hoffmann
+9h - 9h50
+
+L'accessibilité est très allocantrée (centré sur les autres)
+
+En essaynt de penser égocentré, l'accessibilité permet de faire progresser ses compétences
+Exemple : van11y.net
+
+
+
+# Ne passons pas à côté des choses simples
+
+Par, Frank Taillandier et Bertrand Keller
+10h - 10h15
+
+Usages : 
+
+Prototypage
+Présentation de contenu
+
+Contribution :
+
+Headless CMS
+Exemples : Forestry.io
+
+S'appuie sur des APIs pour éviter aux contributeurs non-tech d'apprendre git, github...
+
+JAMStack : Javascript, APIs and Markup
+
+Générateurs : Jekyll, Hugo, Middleman, Gatsby
+
+
+
+# Kit de survie en atelier de co-conception
+
+Par, Émeline Racon
+10h15 - 10h30
+
+Kit de survie, 4 objectifs : se protéger, se signaler, s'hydrater, se nourrir
+
+Se protéger : bien comprendre le contexte, anticiper les récalcitrants
+Service Design Toolkit
+DrawTast : apporte une cynergie de groupe au départ de l'atelier
+
+Alerter : expliquer, répéter, laisser de la place aux participants, bien restituer la démarche
+
+S'hydrater, se nourrir : assister à d'autres ateliers, établir un feedback
+
+
+
+
+# HTML5.1 & Web Platform APIs
+
+
+Push API
+C'est encore un brouillon
+Permets de pousser des notifications via des webapps
+Chrome, Firefox
+s'appuie sur les services workers
+le navigateur a juste besoin d'être actif pour que ça fonctionne
+pas besoin d'avoir le focus sur la page
+
+Gamepad API
+cela permet d'utiliser des gamepads pour interagir avec Canvas, WebGL
+Gamepads de nintendo, xbox, playstation
+
+Vibration API
+Super simple et permet de faire vibrer le téléphone
+ne fonctionne pas sur Apple car pas d'accès au matériel
+
+Pointer Lock API
+permet de réagir avec l'intégralité de la souris
+
+Web Speech API
+permet de faire des apps avec lesquels on peut parler
+possibilité de faire de la saisie avec la voie mais aussi de synthétiser du texte en vocal
+
+
+HTML5.1
+
+picture, srcset 
+"images responsives"
+
+details et summary
+super utile pour afficher, masquer du texte
+
+input type week, month, datetime-local
+
+oncopy, oncut, onpaste
+
+
+
+
+# Progressive web apps
+
+PWA :
+* Linkable : pas d'apps à installer
+* Responsive
+* Safe : https!
+* Connectivity independent : offline first !
+* Fresh : toujours à jour !
+* App-like interactions : archi "application shell"
+* Re-engageable : l'amener à réutiliser l'app (via des notifications)
+* Discoverable : possible d'etre indexer via manifest.json
+* Installable : via le manifest.json les navs proposent de mettre l'apps sur la page d'accueil
+
+
+Service Workers
+
+proxy programmable dans le nav
+uniquement en https (normal ! ça intercepte toutes les requetes !)
+nouvelle api de cache : le cache
+nouvelle api de requettage (ne pas utiliser XHR car peut-etre asynchrone!) : fetch(url) qui retourne une promise
+
+interception pour envoyer des notifications en push
+
+
+
+
+# Leboncoin, les coulisses d'une refonte responsive
+
+Pourquoi le fond jaune moche ?
+Pour une question de lisibilité et de confort de lecture
+
+UX d'abord, responsive après
+
+En 2016, 40% visiteurs uniques sur mobile
+Et le taux de conversion est très mauvais
+
+Carte blanche sur cette refonte graphique.
+Brief de lancement : "Faites ce que vous voulez"
+Passage d'un cycle en V à plus d'agilité, équipe multi-compétence
+
+Accompagnement par Alsacréations
+
+6ème site français
+54% des internautes fr
+24 millions de users
+
+Success : 
+- site de beta (beta.leboncoin.fr) pour tester l'interface avec des vrais utilisateurs proposé à 1 user sur 1000
+- refonte par parcours plutot que par page
+- recrutement des beta-testeurs en activant la proposition de bandeau à 100% des users
+- possibilité de revenir à l'ancienne version à tout moment
+- sondage aux users de 4 questions (dont champ libre)
+
+70000 réponses obtenues à analyser à la  main
+
+5-6 mois de lancement maitrisé
+pas de bugs majeurs, users contents
+
+Loi de brooks "Ajouter des personnes à un projet en retard accroît son retard"
+
+
+
+
+# WCAG 2 
+
+WCAG 1.0 : mai 1999
+3 niveaux de conformité : A, AA, AAA
+
+WCAG 2.0 : decembre 2008
+4 grands principes :
+- pouvoir etre percu par tout le monde
+- manipulation du contenu (souris, clavier...)
+- compréhensibilité du contenu
+- robustesse
+
+UAAG 2.0
+mêmes principes
+
+ATAG 2.0
+
+En 2016, Web page vs web app
+
+il faut mixer les 3 standars : WCAG, UAAG, ATAG
+
+AG = Accessibility Guidelines
+
+w3.org Designing Silver
+
+Project Silver va prendre 5-7 ans
+
+Du coup, WCAG 2.x !
+
+
+
+
+# Features flag chez Blablacar
+
+100 personnes à la tech
+code, test, deliver
+C'était un gros bordel
+Beaucoup de problematique pour delivrer les nouvelles fonctionnalites
+
+3 problemes :
+* Deployer des grosses features
+* Tester une feature avec 25M de users
+* L'effet capital 
+
+Un feature flag permet d'activer une fonctionnalite ou desactiver en production
+
+Cela va permettre de faire 
+* des tests en interne
+* permettre le rollout
+
+Implementation :
+Stockage des features + librairie
+
+Exemples de lib PHP :
+* etsy/features
+* joshuaestes/feature-toggle
+* opensoft/rollout
+* qandidate/toggle
+
+Ils ont choisis la solution de qandidate
+
+Storages : Redis + APCu
+Redis -> stockage principal
+APCu -> cache
+
+Strategies :
+* Unanimous : toutes les strats soient remplies
+* Affirmative : au moins une soit remplie
+* Majority : une majorité des conditions soient remplies
+
+Pour les apps natives, depot d'un json sur un S3 récupéré par les apps qui implementent en natif
+
+
+
+
+
+
+
+# À faire
+
+Sur pkoin.github.io
+- Virer disqus
+- Réintégrer les ressources externes
+- Virer GA
+
+SMiliz
+- https via lets encrypt
+
+R&D
+- Restlet
+- Service Workers
+- Jouer window.speechSynthesis
+- makey makey
+- node-red
+
+Pour Flo 
+- Voir le code de conduite UXPA
+- Service Design Toolkit

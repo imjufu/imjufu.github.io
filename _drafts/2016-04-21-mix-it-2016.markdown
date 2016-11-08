@@ -1,0 +1,101 @@
+---
+layout: post
+title: Mix-IT 2016
+date: 2015-02-27
+---
+
+## Sécuriser ses déploiements
+
+10:15
+
+SaltStack -> Déploiement (alternative : ansible, chef, puppet)  
+Shinken -> Monitoring mais Sensu est bien mieux pour les API Rest
+
+Les devs mettent en place des tests UF, font du TDD...
+Mais en tant que sysops, c'est assez pénible de tester les scripts de déploiements.
+
+### Plusieurs niveaux de vérifications :
+
+1 - Syntaxe : ansible-playbook foo.yml --check  
+2 - Script : utiliser un serveur jetable (préparer vm via VirtualBox et Vagrant, faire une conf, exécuter)
+3 - Supervision : exécuter des vérifs périodiquement, alerte en cas de problème
+
+Possibilité de l'intégrer dans Jenkins
+
+### Test Driven Infrastructure
+
+Mise en place des checks, checks négatifs, déploiement, checks positifs
+
+checks de supervision + config de déploiement = validation des déploiements
+
+#### Implémentation de déploiement du serveur de supervision
+
+* config de déploiement du serveur de supervision
+* config de déploiement du service
+* config de déploiement de la supervision du service
+
+#### Exécution
+
+1. déploiement de la supervision
+2. checks -> négatif
+3. déploiement service
+4. checks -> positif
+
+## Go, from zero to hero
+
+Très proche de Python / Ruby mais plus rapide car compilé.  
+
+* JSON encoding
+* HTTP server
+* Types
+* Interfaces
+* Goroutines
+
+On peut apprendre les concepts de Go en 2h.
+
+Instrumentation :  
+The RED method : Request Rate, Error rate, Duration.
+
+Book : Site Reliability Engineering
+
+## HTTP 2
+
+### HTTP 1 : les problèmes
+
+Problème de latence. La bande passante n'est plus le problème.  
+
+Techniques de contournement :
+
+* Domain sharding
+* Concatenation des assets
+* Sprites
+
+### HTTP 2
+
+Ancètre de HTTP 2 -> SPDY
+
+* Une seule connection TCP  
+* Multiplexing : plusieurs requetes -> une seule connexion  
+* Binary framing  
+* Flow control  
+* HPACK
+* TLS required
+
+Les frames sont visibles dans let net-internals de chrome.
+
+Nginx supporte HTTP 2.
+
+Stream prioritization
+
+Amélioration de TCP sur les serveurs :
+
+* Linux kernel 3.2+
+* Cache-Control & Etag
+* Gzip / deflate
+* Image compression
+
+Dev toolset :
+
+* NSSKeyLog, Wireshark, DevToolBar
+* Ajouter de la latence de connexion via DevToolBar
+
