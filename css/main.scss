@@ -169,9 +169,8 @@ blockquote {
     em {
       font-style: italic;
     }
-    ul {
+    ul, ol {
       font-size: 1em;
-      list-style: circle;
       margin-left: 30px;
       margin-bottom: 15px;
       li {
@@ -184,6 +183,9 @@ blockquote {
       @media screen and (max-width: $br) {
         margin-left: 10px;
       }
+    }
+    ul {
+      list-style: circle;
     }
     img {
       margin-top: 10px;
