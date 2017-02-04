@@ -200,6 +200,11 @@ blockquote {
       border: 0;
       border-bottom: 1px dashed $color-black;
     }
+    code.highlighter-rouge {
+      background-color: #f8f8f8;
+      font-style: italic;
+      padding: 2px;
+    }
   }
 }
 
