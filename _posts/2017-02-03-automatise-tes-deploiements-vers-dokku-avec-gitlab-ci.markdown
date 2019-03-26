@@ -30,7 +30,7 @@ L’utilisation d’outils permet de coupler plus facilement les tâches de dép
 
 ## Dokku, le Heroku auto-hébergé
 
-[Dokku](http://dokku.viewdocs.io/dokku/) te permet de mettre en place un [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) très rapidement. Et en plus, ça tombe bien, il s'appuie sur [Docker](https://pkoin.github.io/docker).
+[Dokku](http://dokku.viewdocs.io/dokku/) te permet de mettre en place un [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) très rapidement. Et en plus, ça tombe bien, il s'appuie sur [Docker](https://imjufu.github.io/docker).
 
 Pour faire tourner Dokku, je l'ai installé sur un Ubuntu serveur 16.04, le tout hébergé sur un serveur dédié [Online.net](https://www.online.net/) à ~10 € par mois.  
 En une ligne de commande et quelques configurations, Dokku est opérationnel.
