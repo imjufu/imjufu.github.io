@@ -236,3 +236,7 @@ blockquote {
     }
   }
 }
+
+.arobase::before {
+  content: "\000040";
+}
