@@ -1,8 +1,11 @@
 - title: À propos
   url: /moi
+  target: _self
 
 - title: Github
   url: https://github.com/imjufu
+  target: _blank
 
 - title: LinkedIn
   url: https://www.linkedin.com/in/julien-fusco/
+  target: _blank
